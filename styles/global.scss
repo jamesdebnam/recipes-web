@@ -1,0 +1,46 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+.content-container {
+  margin: 3rem 5rem 5rem 30rem;
+  transition: all 0.5s ease;
+}
+
+.content-container-folded {
+  margin-left: 12.5rem;
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../public/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../public/Roboto-Light.ttf");
+}
+
+html {
+  box-sizing: border-box;
+  /*
+  Font size at 62.5% sets 1 rem to be 10 pixels,
+  so now you can replace pixels with rem to get fully responsive
+  layout
+  */
+  font-size: 62.5%;
+
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: "Roboto-Light";
+  background-color: var(--backgroundColor3);
+}

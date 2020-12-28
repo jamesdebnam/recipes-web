@@ -1,0 +1,67 @@
+@import "../variables";
+.sidebarContainer {
+  width: 25rem;
+  height: 100vh;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $backgroundColor;
+  box-shadow: 0.2rem 0rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+.sidebarContainerFolded {
+  width: 7.5rem;
+  padding: 0;
+  .listItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.listItem {
+  font-weight: 200;
+  font-size: 2rem;
+  padding: 1.4rem 3rem;
+  color: $textColorPrimary;
+  border-bottom: 1px solid gray;
+  position: relative;
+  /* transition: all 0.3s ease; */
+}
+
+.listItem:hover {
+  cursor: pointer;
+  background-color: $backgroundColor2;
+}
+
+.listItemActive::after {
+  content: "";
+  background-color: $accentColor;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  animation: scaleIn 0.4s ease;
+  transform: translateY(-50%);
+  transform-origin: center;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0, 0) translateY(-50%);
+  }
+
+  100% {
+    transform: scale(1, 1) translateY(-50%);
+  }
+}
