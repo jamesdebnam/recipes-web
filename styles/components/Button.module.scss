@@ -1,0 +1,42 @@
+@import "../variables";
+
+.button {
+  min-width: 8rem;
+  padding: 0 0.5rem;
+  height: 2.5rem;
+  display: flex;
+  font-size: 13px;
+  justify-content: space-around;
+  align-items: center;
+  outline: 0;
+  border: 0;
+  background-color: $backgroundColor;
+  color: $textColorLight;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+
+  .content {
+    transition: all 0.3s ease;
+    position: relative;
+    left: 1rem;
+    padding-right: 2rem;
+  }
+
+  .contentLoading {
+    left: 0;
+  }
+
+  .icon {
+    transition: all 0.3s ease;
+    color: $textColorLight;
+    position: absolute;
+    right: -2rem;
+    opacity: 0;
+  }
+
+  .iconActive {
+    right: 1rem;
+    opacity: 1;
+  }
+}

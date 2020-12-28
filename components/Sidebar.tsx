@@ -13,17 +13,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import s from "../styles/components/Sidebar.module.scss";
 
-interface SidebarProps {
+type SidebarProps = {
   isFolded: boolean;
   setIsFolded: (val: boolean) => void;
-}
+};
 
-interface Route {
+type Route = {
   route?: string;
   cb?: () => void;
   name: string;
   icon: React.ReactNode;
-}
+};
 
 const notLoggedInRoutes: Route[] = [
   {

@@ -1,6 +1,6 @@
 import "antd/dist/antd.css";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
@@ -10,9 +10,15 @@ import "../styles/global.scss";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import { styleFunc } from "../util/styleConverter";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isFolded, setIsFolded] = useState(false);
+
+  useEffect(() => {
+    styleFunc();
+  }, []);
+
   return (
     <Provider store={store}>
       <div>

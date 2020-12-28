@@ -1,0 +1,66 @@
+@import "../../variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 2.5rem;
+  outline: none;
+  position: relative;
+
+  input {
+    width: 30rem;
+    transition: all 0.2s ease;
+    background-color: $backgroundColor2;
+    padding-left: 8px;
+    border: 0;
+    outline: none;
+    color: $textColorLight;
+    border-radius: 4px;
+
+    &::placeholder {
+      color: rgba($textColorLight, 0.7);
+    }
+  }
+
+  .focused {
+    box-shadow: 0 0 0px 2px rgba($shadowColor, 0.9),
+      0 0 3px 0 rgba($shadowColor, 0.2);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .dropdown {
+    position: absolute;
+    //overflow: hidden;
+    transform: scaleY(0.5);
+    box-shadow: 0 0 0px 2px rgba($shadowColor, 0.9),
+      0 0 3px 0 rgba($shadowColor, 0.2);
+    transform-origin: top;
+    opacity: 0;
+    width: 30rem;
+    top: 2.4rem;
+    height: 10rem;
+    background-color: white;
+    transition: all 0.3s ease-out;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    option {
+      text-align: center;
+      margin-bottom: 0.2rem;
+      padding: 0.3rem 1rem;
+
+      &:hover {
+        background-color: $accentColor;
+      }
+    }
+  }
+
+  .dropdownFocused {
+    transform: scaleY(1);
+    width: 30rem;
+    overflow: auto;
+    opacity: 1;
+  }
+}
