@@ -20,7 +20,7 @@ const SearchInput = ({
   const [focused, setFocused] = useState(false);
 
   return (
-    <div className={[s.container, className].sca()}>
+    <div className={[s.container, className].join(" ")}>
       <input
         placeholder={placeholder}
         value={textValue}
@@ -35,7 +35,7 @@ const SearchInput = ({
       <Button
         loading={loading}
         onClick={() => searchCb(textValue)}
-        className={[s.button, focused ? s.focused : ""].sca()}
+        className={[s.button, focused ? s.focused : ""].join(" ")}
       >
         Search
       </Button>

@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.container {
+  padding: 0 0.5rem;
+  border-radius: 2px;
+  height: 1.6rem;
+  font-size: 9px;
+  color: $textColorPrimary;
+  background-color: $accentColor;
+  border: 1px solid rgba($backgroundColor, 0.5);
+  margin-left: 0.4rem;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../variables";
+.container {
+  border-radius: 5px;
+  width: 30%;
+  background-color: $shadowColor;
+  overflow: hidden;
+  .image {
+    //background-color: red;
+
+    position: relative;
+    height: 10rem;
+  }
+
+  .info {
+    padding: 1rem 1.5rem;
+
+    h3,
+    h5,
+    h6 {
+      margin: 0;
+      color: $textColorLight;
+    }
+
+    .title {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+
+      h5 {
+        color: rgba($textColorLight, 0.5);
+      }
+    }
+    .desc {
+      margin-bottom: 1rem;
+    }
+    .tags {
+      margin: 1rem 0;
+      display: flex;
+      color: $textColorPrimary;
+
+      .tag:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

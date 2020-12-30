@@ -7,19 +7,27 @@
   height: 2.5rem;
   outline: none;
   position: relative;
+  margin-bottom: 1rem;
+  .input {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
 
-  input {
     width: 30rem;
     transition: all 0.2s ease;
     background-color: $backgroundColor2;
-    padding-left: 8px;
-    border: 0;
-    outline: none;
     color: $textColorLight;
     border-radius: 4px;
+    input {
+      background-color: transparent;
+      outline: none;
+      border: 0;
+      padding-left: 8px;
+      width: 100%;
 
-    &::placeholder {
-      color: rgba($textColorLight, 0.7);
+      &::placeholder {
+        color: rgba($textColorLight, 0.7);
+      }
     }
   }
 
@@ -30,37 +38,39 @@
     border-bottom-right-radius: 0;
   }
 
+  .closeIcon {
+    fill: $backgroundColor;
+    margin-top: 1px;
+  }
+
   .dropdown {
     position: absolute;
-    //overflow: hidden;
-    transform: scaleY(0.5);
-    box-shadow: 0 0 0px 2px rgba($shadowColor, 0.9),
+    padding-top: 0.5rem;
+    box-shadow: 0 0 0 2px rgba($shadowColor, 0.9),
       0 0 3px 0 rgba($shadowColor, 0.2);
     transform-origin: top;
-    opacity: 0;
     width: 30rem;
-    top: 2.4rem;
-    height: 10rem;
+    top: 2.7rem;
     background-color: white;
     transition: all 0.3s ease-out;
+    overflow: auto;
+    opacity: 1;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-
+    z-index: 5;
     option {
       text-align: center;
       margin-bottom: 0.2rem;
       padding: 0.3rem 1rem;
+      border: 1px solid transparent;
 
       &:hover {
         background-color: $accentColor;
+        border: 1px solid rgba($shadowColor, 0.5);
+        border-left: none;
+        border-right: none;
+        cursor: pointer;
       }
     }
-  }
-
-  .dropdownFocused {
-    transform: scaleY(1);
-    width: 30rem;
-    overflow: auto;
-    opacity: 1;
   }
 }

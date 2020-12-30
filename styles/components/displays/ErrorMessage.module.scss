@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.container {
+  display: flex;
+  margin: 1rem 0;
+  background-color: $errorColor;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px dotted $errorColor2;
+
+  .icon {
+    color: $errorColor2;
+    margin: 0 2rem;
+  }
+  p {
+    margin: 0;
+    color: $errorColor2;
+  }
+}

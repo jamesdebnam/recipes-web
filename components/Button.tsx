@@ -17,15 +17,17 @@ const Button = ({
   className = "",
 }: ButtonProps) => {
   return (
-    <button className={[s.button, className].sca()} onClick={onClick}>
+    <button className={[s.button, className].join(" ")} onClick={onClick}>
       <div
-        className={loading ? [s.content, s.contentLoading].sca() : s.content}
+        className={
+          loading ? [s.content, s.contentLoading].join(" ") : s.content
+        }
       >
         {children}
       </div>
 
       <LoadingOutlined
-        className={loading ? [s.icon, s.iconActive].sca() : s.icon}
+        className={loading ? [s.icon, s.iconActive].join(" ") : s.icon}
       />
     </button>
   );
