@@ -13,9 +13,11 @@ const LoginWrapper = ({
   children,
   store,
 }: LoginWrapperProps): React.ReactNode => {
-  const { error } = useDataFetch("/users/isLoggedIn", (data) =>
-    store.dispatch(login(data))
-  );
+  const { error } = useDataFetch("/users/isLoggedIn", (data) => {
+    if (data) {
+      store.dispatch(login(data));
+    }
+  });
 
   useEffect(() => {
     if (error) console.log(error);

@@ -47,8 +47,7 @@ const SearchDropdown = ({
   }, [textValue]);
 
   useEffect(() => {
-    const itemCount = displayedItems.filter((item) => !selected.includes(item))
-      .length;
+    const itemCount = displayedItems.length;
     const isEmpty = itemCount === 0;
     setIsEmpty(isEmpty);
     if (itemCount === 2) {
@@ -58,7 +57,7 @@ const SearchDropdown = ({
     } else {
       setDropdownHeight(10);
     }
-  }, [selected, dropdownItems, textValue]);
+  }, [selected, dropdownItems, displayedItems]);
 
   function handleBackspace(e) {
     if (e.key === "Backspace" && textValue === "" && selected.length > 0) {
@@ -110,19 +109,17 @@ const SearchDropdown = ({
           }
           style={{ height: `${dropdownHeight}rem` }}
         >
-          {displayedItems
-            .filter((item) => !selected.includes(item))
-            .map((item) => (
-              <option
-                key={item}
-                onClick={() => handleSelect(item)}
-                style={{
-                  textTransform: capitalize ? "capitalize" : "lowercase",
-                }}
-              >
-                {item}
-              </option>
-            ))}
+          {displayedItems.map((item) => (
+            <option
+              key={item}
+              onClick={() => handleSelect(item)}
+              style={{
+                textTransform: capitalize ? "capitalize" : "lowercase",
+              }}
+            >
+              {item}
+            </option>
+          ))}
           {isEmpty && <option>No items found...</option>}
         </div>
       )}

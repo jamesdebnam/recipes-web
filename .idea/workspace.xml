@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2ba467-46fd-4571-bc3f-71ab58ba69d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/inputs/Input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/wrappers/CacheWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/wrappers/LoginWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/signup.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/cacheSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/groupsSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/inputs/Input.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/pages/login.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/RecipeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipeList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/displays/RecipeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/displays/RecipeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hooks/useDataFetch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/hooks/useDataFetch.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/inputs/SearchDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/SearchDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/wrappers/LoginWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/wrappers/LoginWrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/settingsSlice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Button.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/RecipeList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/RecipeList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/cacheSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/cacheSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/groupsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/groupsSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/Sidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Sidebar.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/displays/RecipeCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/displays/RecipeCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/inputs/SearchDropdown.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/inputs/SearchDropdown.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609127414321</updated>
       <workItem from="1609127416872" duration="13807000" />
-      <workItem from="1609207318320" duration="24615000" />
+      <workItem from="1609207318320" duration="30836000" />
     </task>
     <task id="LOCAL-00001" summary="Set up basic project structure">
       <created>1609134454628</created>
@@ -105,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609296322990</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added login routes">
+      <created>1609386992191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609386992191</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +125,8 @@
     <MESSAGE value="Set up basic project structure" />
     <MESSAGE value="Started building basic components" />
     <MESSAGE value="Added recipe cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added recipe cards" />
+    <MESSAGE value="Added login routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added login routes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

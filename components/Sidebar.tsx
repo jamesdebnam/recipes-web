@@ -14,6 +14,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import s from "../styles/components/Sidebar.module.scss";
 import { selectGroup } from "../redux/groupsSlice";
+import axios from "axios";
+import { logout } from "../redux/authSlice";
 
 type SidebarProps = {
   isFolded: boolean;
@@ -52,34 +54,21 @@ export default function Sidebar({
   const { route, push } = useRouter();
   const dispatch = useDispatch();
   const { isLoggedIn, userData } = useSelector((state) => state.auth);
+  const group = useSelector((state) => state.group);
 
   function isRouteMatched(path) {
     let routePath = route.split("/")[1];
     return path === routePath;
   }
 
-  function renderRoute({ route, name, cb, icon }: Route): React.ReactNode {
-    const innerComponent = (
-      <li
-        onClick={cb ? cb : () => {}}
-        className={
-          isRouteMatched(route)
-            ? `${s.listItem} ${s.listItemActive}`
-            : s.listItem
-        }
-      >
-        {icon}
-        {!isFolded && <span> &nbsp; {name}</span>}
-      </li>
-    );
-
-    return route !== undefined ? (
-      <Link key={name} href={`/${route}`}>
-        {innerComponent}
-      </Link>
-    ) : (
-      innerComponent
-    );
+  function isGroupMatched(itemGroup) {
+    const groupName = {
+      Home: "all",
+      "Starred Recipes": "starred",
+      "My Recipes": "personal",
+    };
+    const compareName = groupName[itemGroup] || itemGroup;
+    return group === compareName;
   }
 
   const customGroupRoutes: Route[] =
@@ -115,11 +104,55 @@ export default function Sidebar({
     },
     ...customGroupRoutes,
     {
-      cb: () => {},
+      cb: () => handleLogout(),
       name: "Logout",
       icon: <KeyOutlined />,
     },
   ];
+
+  async function handleLogout() {
+    try {
+      await sendLogoutRequest();
+    } catch (e) {
+      alert("Could not logout...");
+      console.log(e.message);
+    }
+  }
+
+  async function sendLogoutRequest() {
+    const response = (await axios.post("/users/logout")).data;
+    if (response.status === "ok") {
+      dispatch(logout());
+    } else {
+      throw response.message;
+    }
+  }
+
+  function renderRoute({ route, name, cb, icon }: Route): React.ReactNode {
+    const innerComponent = (
+      <li
+        onClick={cb ? cb : () => {}}
+        className={`${s.listItem} ${
+          isRouteMatched(route)
+            ? s.listItemActive
+            : isGroupMatched(name)
+            ? s.listItemActiveGroup
+            : ""
+        }`}
+      >
+        {icon}
+        {!isFolded && <span> &nbsp; {name}</span>}
+      </li>
+    );
+
+    return route !== undefined ? (
+      <Link key={name} href={`/${route}`}>
+        {innerComponent}
+      </Link>
+    ) : (
+      innerComponent
+    );
+  }
 
   return (
     <div

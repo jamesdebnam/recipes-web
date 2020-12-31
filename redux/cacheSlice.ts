@@ -37,6 +37,10 @@ const cacheSlice = createSlice({
       const { prop, data } = action.payload;
       state[prop] = _.uniq([...state[prop], ...data]);
     },
+    removeFromCacheArray: (state, action: PayloadAction<ICacheArrReducer>) => {
+      const { prop, data } = action.payload;
+      _.pullAll(state[prop], data);
+    },
     addToCacheObject: (state, action: PayloadAction<ICacheObjReducer>) => {
       const { prop, data } = action.payload;
       const { firstName, lastName, _id } = data;

@@ -9,12 +9,15 @@ import useDataFetch from "../hooks/useDataFetch";
 import { addToCacheObject } from "../../redux/cacheSlice";
 import axios from "axios";
 import { login } from "../../redux/authSlice";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
 
 type RecipeCardProps = {
   data: IRecipe;
+  starred: boolean;
+  sendStarRequest: () => void;
 };
 
-const RecipeCard = ({ data }: RecipeCardProps) => {
+const RecipeCard = ({ data, starred, sendStarRequest }: RecipeCardProps) => {
   const cachedUsers = useSelector((state) => state.cache.cachedUsers);
   const dispatch = useDispatch();
 
@@ -24,6 +27,7 @@ const RecipeCard = ({ data }: RecipeCardProps) => {
       dispatch(addToCacheObject({ prop: "cachedUsers", data: response.data }));
     }
   }
+
   useEffect(() => {
     if (!cachedUsers[data.author]) {
       sendUserRequest();
@@ -32,6 +36,11 @@ const RecipeCard = ({ data }: RecipeCardProps) => {
 
   return (
     <div className={s.container}>
+      {starred ? (
+        <StarFilled className={s.star} onClick={sendStarRequest} />
+      ) : (
+        <StarOutlined className={s.star} onClick={sendStarRequest} />
+      )}
       <div className={s.image}>
         <Image
           src="/placeholder.png"
