@@ -6,8 +6,7 @@ import SearchDropdown from "./inputs/SearchDropdown";
 import ErrorMessage from "./displays/ErrorMessage";
 import _ from "lodash";
 import RecipeCard from "./displays/RecipeCard";
-
-const testTags = ["tasty", "yummy", "juicy", "chinese"];
+import { useSelector } from "react-redux";
 
 export interface IRecipe extends Document {
   name: string;
@@ -31,11 +30,11 @@ const RecipeList = () => {
   const { loading, data, error } = useDataFetch("/recipes");
   const [tagFilters, setTagFilters] = useState([]);
   const [ingredientFilters, setIngredientFilters] = useState([]);
-
+  const { cachedTags, cachedIngredients } = useSelector((state) => state.cache);
   function handleSearch(val: string): void {}
 
   function isInFilter(compareArray: string[], filterArray: string[]) {
-    const unmatchingFilterItems = _.pullAll(filterArray, compareArray);
+    const unmatchingFilterItems = _.pullAll([...filterArray], compareArray);
     return unmatchingFilterItems.length === 0;
   }
 
@@ -49,7 +48,7 @@ const RecipeList = () => {
         />
         <SearchDropdown
           setSelected={setTagFilters}
-          dropdownItems={testTags}
+          dropdownItems={cachedTags}
           selected={tagFilters}
           placeholder="Filter by tags"
           loading={false}
@@ -57,11 +56,12 @@ const RecipeList = () => {
         />
         <SearchDropdown
           setSelected={setIngredientFilters}
-          dropdownItems={testTags}
+          dropdownItems={cachedIngredients}
           selected={ingredientFilters}
           placeholder="Filter by ingredients"
           loading={false}
           tabIndex={2}
+          capitalize
         />
       </div>
       <ErrorMessage error={error ? error.message : null} />

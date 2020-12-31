@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { IRecipe } from "../RecipeList";
 import s from "../../styles/components/displays/RecipeCard.module.scss";
 import Image from "next/image";
 import Tag from "./Tag";
+import useDataFetch from "../hooks/useDataFetch";
+import { addToCacheObject } from "../../redux/cacheSlice";
+import axios from "axios";
+import { login } from "../../redux/authSlice";
+
 type RecipeCardProps = {
   data: IRecipe;
 };
 
 const RecipeCard = ({ data }: RecipeCardProps) => {
+  const cachedUsers = useSelector((state) => state.cache.cachedUsers);
+  const dispatch = useDispatch();
+
+  async function sendUserRequest() {
+    const response = (await axios.get(`/users/${data.author}`)).data;
+    if (response.status === "ok") {
+      dispatch(addToCacheObject({ prop: "cachedUsers", data: response.data }));
+    }
+  }
+  useEffect(() => {
+    if (!cachedUsers[data.author]) {
+      sendUserRequest();
+    }
+  }, []);
+
   return (
     <div className={s.container}>
       <div className={s.image}>
@@ -23,7 +45,13 @@ const RecipeCard = ({ data }: RecipeCardProps) => {
       <div className={s.info}>
         <div className={s.title}>
           <h3>{data.name}</h3>
-          <h5> - {data.author}</h5>
+          <h5>
+            &nbsp; -{" "}
+            {cachedUsers[data.author] &&
+              `${cachedUsers[data.author].firstName} ${
+                cachedUsers[data.author].lastName
+              }`}
+          </h5>
         </div>
         <h5 className={s.desc}>{data.description}</h5>
         <h5>Serves: {data.serves}</h5>

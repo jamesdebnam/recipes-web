@@ -7,11 +7,13 @@ import {
   KeyOutlined,
   StarOutlined,
   SmileOutlined,
+  InboxOutlined,
 } from "@ant-design/icons";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
 import s from "../styles/components/Sidebar.module.scss";
+import { selectGroup } from "../redux/groupsSlice";
 
 type SidebarProps = {
   isFolded: boolean;
@@ -42,36 +44,14 @@ const notLoggedInRoutes: Route[] = [
     icon: <KeyOutlined />,
   },
 ];
-const loggedInRoutes: Route[] = [
-  {
-    route: "",
-    name: "Home",
-    icon: <HomeOutlined />,
-  },
-  {
-    cb: () => {},
-    name: "Starred Recipes",
-    icon: <StarOutlined />,
-  },
-  {
-    cb: () => {},
-    name: "My Recipes",
-    icon: <SmileOutlined />,
-  },
-  {
-    cb: () => {},
-    name: "Logout",
-    icon: <KeyOutlined />,
-  },
-];
 
 export default function Sidebar({
   isFolded,
   setIsFolded,
 }: SidebarProps): React.ReactElement {
-  const { route } = useRouter();
+  const { route, push } = useRouter();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { isLoggedIn, userData } = useSelector((state) => state.auth);
 
   function isRouteMatched(path) {
     let routePath = route.split("/")[1];
@@ -101,6 +81,45 @@ export default function Sidebar({
       innerComponent
     );
   }
+
+  const customGroupRoutes: Route[] =
+    userData.customGroups?.map((item) => {
+      return {
+        cb: () => dispatch(selectGroup(item.name)),
+        name: item.name,
+        icon: <InboxOutlined />,
+      };
+    }) || [];
+
+  const loggedInRoutes: Route[] = [
+    {
+      cb: () => {
+        if (route.split("/")[1] === "") {
+          dispatch(selectGroup("all"));
+        } else {
+          push("/");
+        }
+      },
+      name: "Home",
+      icon: <HomeOutlined />,
+    },
+    {
+      cb: () => dispatch(selectGroup("starred")),
+      name: "Starred Recipes",
+      icon: <StarOutlined />,
+    },
+    {
+      cb: () => dispatch(selectGroup("personal")),
+      name: "My Recipes",
+      icon: <SmileOutlined />,
+    },
+    ...customGroupRoutes,
+    {
+      cb: () => {},
+      name: "Logout",
+      icon: <KeyOutlined />,
+    },
+  ];
 
   return (
     <div

@@ -2,8 +2,10 @@
 .container {
   border-radius: 5px;
   width: 30%;
-  background-color: $shadowColor;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
   .image {
     //background-color: red;
 
@@ -13,6 +15,7 @@
 
   .info {
     padding: 1rem 1.5rem;
+    background-color: $shadowColor;
 
     h3,
     h5,
@@ -43,5 +46,10 @@
         margin-left: 0;
       }
     }
+  }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 2px 4px rgba($shadowColor, 0.2);
   }
 }

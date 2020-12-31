@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./authSlice";
-import settingsSlice from "./settingsSlice";
+import cacheSlice from "./cacheSlice";
+import groupsSlice from "./groupsSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
-    settings: settingsSlice,
+    cache: cacheSlice,
+    group: groupsSlice,
   },
 });

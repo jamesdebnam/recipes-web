@@ -7,17 +7,21 @@ type ButtonProps = {
   onClick: () => void;
   loading?: boolean;
   className?: string;
-  icon?: React.ReactElement;
+  disabled?: boolean;
 };
 
 const Button = ({
   onClick,
   children,
+  disabled = false,
   loading = false,
   className = "",
 }: ButtonProps) => {
   return (
-    <button className={[s.button, className].join(" ")} onClick={onClick}>
+    <button
+      className={[s.button, className, disabled ? s.disabled : ""].join(" ")}
+      onClick={disabled ? () => {} : onClick}
+    >
       <div
         className={
           loading ? [s.content, s.contentLoading].join(" ") : s.content

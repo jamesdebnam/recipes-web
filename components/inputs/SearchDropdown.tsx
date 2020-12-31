@@ -13,9 +13,10 @@ type SearchDropdownProps = {
   dropdownItems: string[];
   tabIndex: number;
   loading: boolean;
+  selected: string[];
   placeholder?: string;
   className?: string;
-  selected?: string[];
+  capitalize?: boolean;
 };
 
 const SearchDropdown = ({
@@ -24,8 +25,9 @@ const SearchDropdown = ({
   setSelected,
   loading,
   dropdownItems,
-  selected = [],
+  selected,
   tabIndex,
+  capitalize = false,
 }: SearchDropdownProps) => {
   const [textValue, setTextValue] = useState("");
   const [focused, setFocused] = useState(false);
@@ -56,7 +58,7 @@ const SearchDropdown = ({
     } else {
       setDropdownHeight(10);
     }
-  }, [selected]);
+  }, [selected, dropdownItems, textValue]);
 
   function handleBackspace(e) {
     if (e.key === "Backspace" && textValue === "" && selected.length > 0) {
@@ -66,8 +68,9 @@ const SearchDropdown = ({
   }
 
   function handleSelect(item) {
-    console.log(item);
-    setSelected([...selected, item]);
+    const newSelected = [...selected, item];
+    console.log(newSelected);
+    setSelected(newSelected);
     setTextValue("");
   }
 
@@ -110,7 +113,13 @@ const SearchDropdown = ({
           {displayedItems
             .filter((item) => !selected.includes(item))
             .map((item) => (
-              <option key={item} onClick={() => handleSelect(item)}>
+              <option
+                key={item}
+                onClick={() => handleSelect(item)}
+                style={{
+                  textTransform: capitalize ? "capitalize" : "lowercase",
+                }}
+              >
                 {item}
               </option>
             ))}

@@ -1,0 +1,11 @@
+@import "../variables";
+
+.container {
+  display: flex;
+  flex-flow: column;
+  row-gap: 2rem;
+
+  .button {
+    width: 39.5rem;
+  }
+}
