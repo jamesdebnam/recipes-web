@@ -3,7 +3,6 @@
   border-radius: 5px;
   width: 30%;
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.4s ease;
   position: relative;
 
@@ -23,13 +22,14 @@
 
   .image {
     //background-color: red;
-
     position: relative;
     height: 10rem;
   }
 
   .info {
     padding: 1rem 1.5rem;
+    cursor: pointer;
+
     background-color: $shadowColor;
     height: 100%;
     h3,

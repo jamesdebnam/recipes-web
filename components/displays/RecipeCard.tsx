@@ -10,6 +10,7 @@ import { addToCacheObject } from "../../redux/cacheSlice";
 import axios from "axios";
 import { login } from "../../redux/authSlice";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
+import Link from "next/link";
 
 type RecipeCardProps = {
   data: IRecipe;
@@ -51,27 +52,29 @@ const RecipeCard = ({ data, starred, sendStarRequest }: RecipeCardProps) => {
           alt="Meal placeholder image"
         />
       </div>
-      <div className={s.info}>
-        <div className={s.title}>
-          <h3>{data.name}</h3>
-          <h5>
-            &nbsp; -{" "}
-            {cachedUsers[data.author] &&
-              `${cachedUsers[data.author].firstName} ${
-                cachedUsers[data.author].lastName
-              }`}
-          </h5>
+      <Link href={`/recipe/${data._id}`}>
+        <div className={s.info}>
+          <div className={s.title}>
+            <h3>{data.name}</h3>
+            <h5>
+              &nbsp; -{" "}
+              {cachedUsers[data.author] &&
+                `${cachedUsers[data.author].firstName} ${
+                  cachedUsers[data.author].lastName
+                }`}
+            </h5>
+          </div>
+          <h5 className={s.desc}>{data.description}</h5>
+          <h5>Serves: {data.serves}</h5>
+          <div className={s.tags}>
+            {data.tags.map((item, index) => {
+              if (index < 3) {
+                return <Tag name={item} key={item} className={s.tag} />;
+              }
+            })}
+          </div>
         </div>
-        <h5 className={s.desc}>{data.description}</h5>
-        <h5>Serves: {data.serves}</h5>
-        <div className={s.tags}>
-          {data.tags.map((item, index) => {
-            if (index < 3) {
-              return <Tag name={item} key={item} className={s.tag} />;
-            }
-          })}
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };

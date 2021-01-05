@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2ba467-46fd-4571-bc3f-71ab58ba69d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/recipe/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/RecipeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipeList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/displays/RecipeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/displays/RecipeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/inputs/SearchDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/SearchDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/wrappers/LoginWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/wrappers/LoginWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/cacheSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/cacheSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/groupsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/groupsSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/Sidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/Sidebar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/displays/RecipeCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/displays/RecipeCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/inputs/SearchDropdown.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/inputs/SearchDropdown.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609127414321</updated>
       <workItem from="1609127416872" duration="13807000" />
-      <workItem from="1609207318320" duration="30836000" />
+      <workItem from="1609207318320" duration="30884000" />
+      <workItem from="1609490305775" duration="1038000" />
     </task>
     <task id="LOCAL-00001" summary="Set up basic project structure">
       <created>1609134454628</created>
@@ -103,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609386992191</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Connected group filtering and starred recipes">
+      <created>1609403342389</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609403342389</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +128,8 @@
     <MESSAGE value="Started building basic components" />
     <MESSAGE value="Added recipe cards" />
     <MESSAGE value="Added login routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added login routes" />
+    <MESSAGE value="Connected group filtering and starred recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connected group filtering and starred recipes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
